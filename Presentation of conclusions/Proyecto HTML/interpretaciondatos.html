@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<title> Interpretación de Datos </title>
+
+<ul id=”menu”>
+<h2>Menu</h2>
+<li><a href="index.html">Inicio</a></li>
+<li><a href="introduccion.html">Introducción</a></li>
+<li><a href="presentacion.html">Presentación</a></li>
+<li><a href="objetivos.html">Objetivos</a></li>
+<li><a href="obtenciondatos.html">Obtencion de Datos</a></li>
+<li><a href="analisisdatos.html">Análisis de Datos</a></li>
+<li>
+<a href="interpretaciondatos.html">Interpretación de Datos</a>
+	<ul>
+      <li><a href="#primero"> Red de películas con Valoración Positiva </a></li>
+      <li><a href="#segundo"> Red de películas con Valoración Negativa </a></li>
+      <li><a href="#tercero"> Red de películas no vistas </a></li>
+	  <li><a href="#cuarto"> Comparativa Redes de Valoraciones Positivas de Hombres y Mujeres </a></li>
+	  <li><a href="#quinto"> Comparativa Redes de Valoraciones Negativas de Hombres y Mujeres </a></li>
+      <li><a href="#sexto"> Red de Valoraciones Positivas de Estudiantes de Informática </a></li>
+	</ul>
+</li>
+<li><a href="conclusiones.html">Conclusiones</a></li>
+</ul>
+
+</head>
+
+<body>
+
+<h1>VI. Interpretación de Datos </h1>
+<p>En este apartado interpretamos la representación y los resultados de las  respectivas redes obtenidas en el análisis.</p>
+
+<a name="primero"><h3>1. Red de películas con Valoración Positiva</h3></a>
+<p>En este apartado hablaremos sobre la red global de las películas con voto positivo, donde se incluye el voto de hombres y mujeres encuestados anteriormente.</p>
+<h4>Red completa</h4>
+<img src="imagenes/Global Positivas Comunidades.png">
+<p>Como se puede observar en el apartado I. Red positiva completa la imagen de la red se ha dividido en dos grandes comunidades según los datos obtenidos en el análisis concluimos que estas dos comunidades se pueden interpretar como  “Películas muy famosas”  (amarillo) y “Película menos famosas” (rojo)</p>
+<p>Las películas situadas en la comunidad “Películas muy famosas” han sido votadas más veces con un valor de  4 y 5, este dato se refleja en el tamaño de cada uno de los nodos, siendo mayor si se han valorado mejor.</p>
+<h4>Red filtrada</h4>
+<img src="imagenes/Global TOP Positivas Comunidades.png">
+<p>En este apartado vamos analizar la red filtrada que se observa en el apartado  II. Red positiva filtrada, que se corresponde con las películas con mayor valoración dentro de la red.</p>
+<p>Se puede observar que se generan dos comunidades, la primera se puede interpretar como “Películas más realistas” (azul) donde destacan las situaciones históricas o situaciones que pueden darse en la vida real exceptuando El Rey León ya que esta película es una de las preferidas por el público y rompe con nuestra esquematización general. Y la otra comunidad se puede interpretar como  “Películas de géneros Fantásticos o Ciencia ficción” (rojo).</p>
+<p>Esta jerarquización se interpreta de la siguiente forma:
+<li>Con estos datos hemos podido observar que las personas que han votado positivamente a una determinada película en concreto de género Fantásticos ha votado también positivamente al resto de películas de  Ciencia ficción. Por lo que podemos considerar que las personas encuestadas les gusta más este tipo de cine en los cuales sus características tienden a lo posible en la realidad.</li>
+<li>Por otra parte, las personas que han votado positivamente las películas realistas también ha votado positivamente al resto de este mismo género, por lo que la mayoría de personas siempre tienden a visualizar este género ya que les gusta más como se ha podido ver en el análisis.</li>
+<p>Por ejemplo, si miramos las aristas de esta red podemos observar que las películas Forrest Gump, Intocable, Gladiator, Titanic, La Vida es Bella y El Rey León, se han votado positivamente entre las dos comunidades, luego estas películas al tener un contenido más entretenido suele romper con los anteriores esquemas y las personas les gusta por lo que ofrecen y no por su género.</p>
+<p>Un dato curioso, la gente que ha votado positivamente a Matrix, también lo han hecho a Seven.</p>
+<p></p>
+
+<a name="segundo"><h3>2. Red de películas con Valoración Negativa</h3></a>
+<p>En este apartado hablaremos sobre la red global de las películas con voto negativo, donde se incluye el voto de hombres y mujeres encuestados anteriormente.</p>
+<h4>Red completa</h4>
+<img src="imagenes/Global Negativas Comunidades.png">
+<p>El siguiente estudio se basa en el apartado III. Red negativa completa en la cual podemos detallar la imagen de la red completa donde destacan 3 comunidades. </p>
+<p>Cada comunidad se representa con un color y se categorizan en función al tipo de género que contienen en su mayoría. La primera comunidad está formada por películas cuyo género es el Drama o Acción (morada), la segunda comunidad está formada en su mayoría por películas de Crímenes, Horror y algo de Aventuras (amarilla) y por último las películas de Ciencia Ficción y basadas en Hechos reales.</p>
+<p>Esta jerarquización se interpreta de la siguiente forma:
+<li>Las personas que votan negativamente a películas de un género determinado tienden a votar negativamente a otras películas del mismo género y en muy rara vez se demuestra lo contrario por lo que podemos considerar que las personas a pesar del título y del contenido de la película por su género en si suelen tender a votar negativamente.</li> 
+<li>Además se puede observar que la comunidad con más votos negativos es aquella cuyas películas son de género de Ciencia Ficción y basadas en hechos reales.</li>
+</p>
+<h4>Red filtrada</h4>
+<img src="imagenes/Global TOP Negativas Comunidades.png">
+<p>En este apartado vamos analizar la red filtrada que se observa en el apartado  IV. Red negativa filtrada, que se corresponde con las películas con menor valoración dentro de la red.</p>
+<p>Como se puede observar se han vuelto a formar 3 comunidades en las cuales se va a apreciar mucho más que cada una está formada por unos géneros concretos.</p>
+<p>La primera comunidad está formada por películas cuyo género es el Terror y Aventura (verde), la segunda comunidad contiene en su totalidad películas de Ciencia Ficción (roja) y la última comunidad se puede interpretar como Géneros distintos (azul) esto se debe  a que el género de esta comunidad de películas son muy diferentes y lo común de ellas y el motivo por lo que se genera esta comunidad es que su contenido tiene un desenlace trágico para los protagonistas siendo en casi todos los casos la muerte. “/SPOILER Como por ejemplo Terminator 2, donde el protagonista acaba muriendo, al igual que en El club de la lucha donde todos los protagonistas también mueren /SPOILER”.</p>
+<p>Estos datos nos confirman que la gente que vota negativo una película de un género determinado, vota también negativamente películas de ese mismo género, siendo mucho menos valorada las de Ciencia Ficción y las que tienen tramas difíciles de creer</p>
+<p>Comparada con la red positiva filtrada, cabe destacar que las películas de Ciencia Ficción son tanto las menos valoradas como las más valoradas, demostrando que hay opiniones diferentes con respecto al género.</p>
+<p>Nos ha llamado la atención, la película Matrix e Interstellar, que destacan en su respectivo género, el de Ciencia Ficción. Son menos valoradas negativamente que otras con un componente fantástico mucho más ligero.</p>
+<p></p>
+
+<a name="tercero"><h3>3. Red de películas no vistas</h3></a>
+<p>Respecto a esta red cabe destacar que los nodos se unen entre sí, si dos personas no han votado un par de películas, al contrario de las otras redes donde se votaba positivo o negativa porque se tenía conocimiento de la película.</p>
+<p>En este caso, esta red se crea debido a que en el formulario generaba espacios en blanco si la película no se había votado.</p>
+<p>El problema que tenemos para sacar conclusiones es que nosotros no tenemos forma de saber si esa película no se ha votado porque no quieren verla, porque no les gusta o porque no han tenido tiempo para ello. Por ello vamos a estudiar solo la red filtrada por peso de arista para ver el top de películas no vistas.</p>
+<h4>Red filtrada</h4>
+<img src="imagenes/No vistas.png">
+<p>Vamos a aplicar un filtro sobre el peso de aristas, de esta forma se formarán enlaces si ha habido muchos más votos entre ellas. Una vez aplicado el filtro, en este caso ponemos el peso mínimo de arista en 60 y aislamos a la componente gigante. Volvemos a recalcular los datos de la red filtrada y se obtendrá la red mostrada en el apartado V. Red no vista filtrada, que se corresponde con las películas con menor valoración dentro de la red.</p>
+<p>Se puede observar la existencia de diferentes comunidades a las cuales no podemos interpretar con rigor como se ha explicado antes ya que no sabemos si no han sido vistas o porque no rellenaron la valoración para esta película.</p>
+<p>Una vez filtrada la red encontramos cuatro nodos notablemente más grandes que el resto, estos nodos corresponden a las películas: Uno de los nuestros, Apocalypse Now, Casablanca y Apocalypto. Consideramos que estas son las cuatro películas que la mayoría de personas encuestadas no ha visto. </p>
+<p>La mayoría de la red está formada por películas antiguas muy conocidas como es el caso de Casablanca y también de clásicos del cine que marcaron un antes y un después en la industria cinematográfica como Psicosis o El Resplandor. Cabe destacar la aparición de Interstellar en la red, es normal que aparezca ya que es una película muy reciente por lo que intuimos que la pequeña cantidad de gente que no ha visto Interstellar es porque no ha ido al cine recientemente.</p>
+<p></p>
+
+<a name="cuarto"><h3>4. Comparativa Redes de Valoraciones Positivas de Hombres y Mujeres</h3></a>
+<p>En este apartado se van a comparar los datos entre las redes de Hombres y Mujeres.  Esta comparativa se realizará sobre las redes positivas completas y filtradas de cada uno de ellos.</p>
+<h4>Red completa</h4>
+<img src="imagenes/Hombres Positivos Completa.png">
+<img src="imagenes/Mujeres Positivos Completa.png">
+<p>En este apartado vamos a comparar las redes completas de hombres y mujeres conjuntamente, para ver sus diferencias y similitudes. La representación de estas redes se encuentra en el apartado VI. Red positivo mujeres completa  y en VII. Red positivo hombres completa.</p>
+<p>Empezamos por la red de las mujeres, en la cual podemos observar que en el centro de la red se encuentran las películas más valoradas por ellas y se representan en un color violeta más oscuro donde destaca la película El Rey León. </p>
+<p>El resto de películas que se encuentran en la comunidad, La Vida es Bella, Forrest Gump, Intocable, Titanic y En busca de la felicidad que se encuentran alrededor del Rey León, a este conjunto de películas las podríamos categorizar como “Drama/Comedia”.</p>
+<p>En la red de los hombres, hay muchas películas de distinto género que han sido mejores valoradas comparado con el caso de la red de las mujeres. La película mejor valorada es El Truco Final, seguida de Forrest Gump, Matrix, Gladiator, La Vida es Bella, El Señor de los Anillos, Batman, Origen, El Padrino, Intocable y El Rey León. Podemos agrupar estas películas en un contexto de “Acción/Guerra” ya que la mayoría contienen elementos de este género. </p>
+<p>Por lo que consideramos que a la mayoría de los hombres encuestados tienden más a ver películas donde el contenido tenga más acción, suspense...</p>
+<h4>Red filtrada</h4>
+<img src="imagenes/Hombres Positivos Filtrada.PNG">
+<img src="imagenes/Mujeres Negativo Filtrada.PNG">
+<p>En este apartado consideramos donde realmente se pueden sacar conclusiones más específicas respecto a las redes filtradas como saber cuál sería ver el top de películas más valoradas. </p>
+<p>En esta red aplicamos el Filtro en el peso de arista con un rango de 30 (esto quiere decir que para que se forme enlace tienen que haber sido valoradas con una puntuación de 4 o 5 y al menos unas 30 veces un par de películas).</p>
+<p>La visualización de estas redes filtradas se encuentra en el apartado VII. Red positivo mujeres filtrada y VII. Red positivo hombre filtrada.</p>
+<p>Empezamos con la red filtrada de las mujeres, donde se pueden distinguir la existencia de dos comunidades, la comunidad primera está formada únicamente por la trilogía del Señor de los Anillos (verde) y la otra comunidad esta compuesta por películas de diversos géneros (rosa), en esta última comunidad sacamos como factor común que todas las películas tienen en su contenido referencias a la violencia, siendo El Rey León y La Vida es Bella las películas más valoradas.</p>
+<p>Destacamos la comunidad de color verde, formada por la trilogía de El Señor de los Anillos, películas que no se mostraban en la red completa como las más valoradas, pero si aparecen tras aplicar el filtro.</p>
+<p>Es curioso que las tres películas se hayan juntado solas en una comunidad, pero más curioso aún como se han valorado, con esto nos referimos que en la unión de las películas en la red, a las chicas que les gusta La Comunidad del Anillo, también les suelen gustar las otras dos películas, pero a las que le gusta El Retorno del Rey, no les gusta tanto Las Dos Torres y viceversa.</p>
+<p>Ahora procedemos a interpretar la red de los hombres, repetimos los mismos pasos que con la red de las mujeres y obtenemos en este caso tres comunidades que vamos a categorizar de la siguiente manera: La comunidad formada por la trilogía de El Señor de los Anillos (verde), la comunidad formada por películas cuyo contenido tiende a rasgo referidos a la Guerra (roja) y por ultimo una comunidad más amplia en la que aparece películas con géneros distintos pero que tienen en común su trama, la moral y los distintos puntos de vista de un conflicto a lo largo de las películas.</p>
+<p>En el caso de los hombres, al contrario de las mujeres, las películas de El Señor de los Anillos si que se han valorado todas positivamente entre sí de una manera equitativa. Ambas redes comparten varias películas, pero esta vez nos centramos en las desigualdades.</p>
+<p>En el caso de la red de los hombres, la película más votada es El Truco Final, película que aparece en un nodo muy pequeño en la red completa de las mujeres.
+Aunque se ha visto antes que a los chicos les gustan películas más violentas, es sin embargo en la red de mujeres donde aparecen las más violentas como por ejemplo las películas American History X y El Silencio de los Corderos.
+En la red de los chicos está muy presente el género fantástico al contrario que en la mujer, donde predomina el drama.
+</p>
+<p>Como curiosidad, nos hemos dado cuenta que las películas de El Señor de los Anillos forman comunidades entre ellas solas.</p>
+<p></p>
+
+<a name="quinto"><h3>5. Comparativa Redes de Valoraciones Negativas de Hombres y Mujeres</h3></a>
+<img src="imagenes/Hombres Negativo Completa.PNG">
+<img src="imagenes/Mujeres Negativo Filtrada.PNG">
+<p>En este apartado se van a comparar los datos entre las redes de Hombres y Mujeres. Esta comparativa se realizará sobre las redes de votos negativos de cada uno de ellos.</p>
+<p>La visualización de estas redes filtradas se encuentran en el apartado X. Red negativo mujeres filtrada y XI. Red negativo hombres completa del fichero Representación de Redes.pdf.</p>
+<p>Después de ver las redes que Gephi nos genera sobre ambas redes, hemos llegado a la conclusión de que la única forma de obtener conclusiones relevantes es comparando la red completa de hombres con la red filtrada por peso de arista de mujeres. </p>
+<p>Esto se debe a que si filtramos la red generada por los votos negativos de los chicos, esta red desaparece, porque los chicos no han votado tantas veces negativo como las chicas. Podríamos decir que las mujeres han sido más críticas a la hora de realizar el formulario.</p>
+<p>Podemos observar que en la red de votos negativos de las mujeres encontramos tres comunidades: La primera comunidad formada por las sagas de Ciencia Ficción más conocidas como El Señor de los Anillos y Star Wars (amarillo), otra comunidad formada por Regreso al Futuro (naranja) y por último la formada por películas cuya acción gira entorno a un solo personaje.</p>
+<p>Viendo las películas que hay en la red, podemos concluir que a las mujeres no les atrae la Ciencia Ficción en general. Aunque como vimos anteriormente, El Señor de los Anillos era una de las películas más votadas positivamente por las mujeres asique estas películas tienen más valoraciones dispares.</p>
+<p>Ahora nos centramos en la red completa generada por los votos negativos de los hombres, en esta red se nos han creado seis comunidades, tres de ellas son nodos sueltos, ya que no han obtenido ni un solo voto negativo, son el caso de: La Vida es Bella (rojo), Uno de los nuestros (amarillo) y La Lista de Schindler (rosa). </p>
+<p>Luego tenemos otras tres comunidades más extensas y sin ningún tipo de relación aparente entre sus componentes, aparte de ser votadas negativamente entre ellas.</p>
+<p>Como se mencionó anteriormente, no se ha podido obtener una red filtrada de esta red, ya que las conexiones entre nodos son muy débiles y la red desaparece prácticamente al filtrarse, esta debilidad en la red viene dada por la escasez de votos negativos hacia las películas por parte de los hombres, por lo que no podemos sacar datos concluyentes más haya de ver los resultados de votos y encontrar que la películas peores valoradas por los chicos son Titanic, El Resplandor e Indiana Jones que son de absolutamente distinto en todo (género, contenido, trama..)</p>
+<p></p>
+
+<a name="sexto"><h3>6. Red de Valoraciones Positivas de Estudiantes de Informática</h3></a>
+<img src="imagenes/Informatica Positivas filtrado.PNG">
+<p>En este apartado se van a comparar los datos entre las redes de Hombres y Mujeres. Esta comparativa se realizará sobre las redes de votos negativos de cada uno de ellos. La visualización de esta red se encuentra en el apartado XII. Red informática filtrada </p>
+<p>Uno de los objetivos de este proyecto era recomendar películas a la Biblioteca de la Facultad de Informática, para este fin se ha filtrado los datos de los estudiantes de Informática contenidos en los resultados del formulario. </p>
+<p>Para este estudio necesitamos filtrar la red y sacar numero  top de votos, para ello utilizamos de nuevo el Filtro por peso de arista (peso 15 en este caso) y aislamos la componente gigante resultante para poder obtener una red con las dieciséis películas mejor valoradas por los estudiantes de Informática.</p>
+<p>Se puede visualizar las dos comunidades que aparecen en la red pero no se aprecia ninguna diferencia notable en cuanto al género de las películas de una comunidad y otra, por lo que vamos a pasar a un análisis más exhaustivo sobre las relaciones en la red.</p>
+<p>Podemos detallar que las películas mejor valoradas son Matrix, El Señor de los Anillos: El Retorno del Rey y El Rey León, pertenecientes a la comunidad de color amarillo.</p>
+<p>Tenemos dos películas que solo han sido bien valoradas junto a Matrix y El Rey León y estas son La Lista de Schindler y Titanic. No se encuentra relación entre estas dos películas basadas en hechos reales y las otras dos fantásticas o de animación, por lo que podemos intuir que a los estudiantes de Informática se decantan por películas que tienen gran reclamación por el público en general, en este punto podemos especular que han visto estas películas por recomendación o por ser un estreno cuya publicidad ha sido muy buena y haya llamado la atención de los  estudiantes encuestados.</p>
+<p>Por otra parte vemos que por lo general las personas que han valorado  con una puntuación alta a las películas de Star Wars también han valorado alto a El Retorno del Rey, pero no al resto de la trilogía.</p>
+<p>Podríamos sacar de la red una clara recomendación, para la gente que no haya visto El Club de la Lucha y le guste Gladiator.</p>
+<p></p>
+
+</body>
+</html>

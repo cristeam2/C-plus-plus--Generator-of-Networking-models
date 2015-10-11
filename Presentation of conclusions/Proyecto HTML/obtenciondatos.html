@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Obtención de datos</title>
+		<ul id=”menu”>
+<h2>Menu</h2>
+<li><a href="index.html">Inicio</a></li>
+<li><a href="introduccion.html">Introducción</a></li>
+<li><a href="presentacion.html">Presentación</a></li>
+<li><a href="objetivos.html">Objetivos</a></li>
+<li><a href="obtenciondatos.html">Obtencion de Datos</a></li>
+<li><a href="analisisdatos.html">Análisis de Datos</a></li>
+<li>
+<a href="interpretaciondatos.html">Interpretación de Datos</a>
+	<ul>
+      <li><a href="#primero"> Red de películas con Valoración Positiva </a></li>
+      <li><a href="#segundo"> Red de películas con Valoración Negativa </a></li>
+      <li><a href="#tercero"> Red de películas no vistas </a></li>
+	  <li><a href="#cuarto"> Comparativa Redes de Valoraciones Positivas de Hombres y Mujeres </a></li>
+	  <li><a href="#quinto"> Comparativa Redes de Valoraciones Negativas de Hombres y Mujeres </a></li>
+      <li><a href="#sexto"> Red de Valoraciones Positivas de Estudiantes de Informática </a></li>
+	</ul>
+</li>
+<li><a href="conclusiones.html">Conclusiones</a></li>
+</ul>
+	</head>
+	<body>
+		<h1>IV. Obtención de datos</h1>
+		<p>En este apartado consta de diferentes partes que se 
+		detallan a continuacion</p>
+		
+		<h3>Creación de formulario</h3>
+		<p>Para poder conseguir la información pertinente para la realización de la red de estudio
+		, realizamos un formulario a través de Google Form.</p>
+		<p>Este formulario consta de las siguientes características: </p>
+		<li> Sexo de la persona que realiza la encuesta.</li>
+		<li> Edad de la persona que realiza la encuesta.</li>
+		<li> Nacionalidad de la persona que realiza la encuesta.</li>
+		<li> Área de estudio de la persona que realiza la encuesta.</li>
+		<li> Título de 50 películas seleccionadas a través de IMDB, las 
+		 cuales ofrecen una amplia variedad de géneros.</li>
+		<li> Cada película podrá ser valorada con una puntuación de 1 a 5, siendo
+		posible no votarla sólo en caso de no haberla visto, en ese caso la valoración será vacía.</li>
+		<li> La persona encuestada solo podrá valorar aquellas películas que hayan visto.</li>
+		<p>Este formulario fue distribuido por cada uno de los integrantes del grupo a través de redes 
+		sociales y aplicaciones de mensajería</p>
+		
+		
+		<h3>Resultados de los formularios </h3>
+		<p>El número total de las personas que realizaron las encuestas fue de 143. Donde destaca una
+		gran variedad de personas de diferente nacionalidad, edades y áreas de especialización de estudios.</p>
+		<p>Con los resultados de los formularios </p>
+		<p>Con los resultados del formulario lo utilizaremos en el siguiente apartado para hacer un filtrado
+		según el tipo de red que consideremos oportuno </p>
+		
+		<h3>Filtrado de los resultados y aplicacion de macro</h3>
+		<p>Una vez obtenidos los resultados finales de las encuestas, procedemos a realizar 
+		cambios sobre el Excel de respuesta para generar posteriormente un .CSV que nos permita
+		cargarlo en Gephi y nos muestre la red deseada:</p>
+		<p>En primer lugar tomamos del formulario principal todos los datos que nos interesen, como por 
+		ejemplo si queremos analizar las valoraciones que han dado sólo los hombres, procederemos  a exportar a 
+		Excel solo las filas que en el campo sexo tengan el contenido “Hombre”.</p>
+		<p>Una vez introducidas las filas que cumplan el criterio que deseamos estudiar y habiendo eliminado los demás
+		atributos como (estudios, edad, etc.) procederemos a moldear la hoja Excel de tal forma que Gephi los pueda interpretar, para 
+		ello hemos desarrollado un programa Macro en VBA (Visual Basic for Applications) para Excel el cual se encuentra en la
+		carpeta Macro en el documento macroASR.rtf, el cual realizará este moldeado de forma automática.</p>
+		
+		<a href="macro/macroASR.rtf"> Código de la Macro de Excel </a>
+		
+		<p>A continuación explicaremos la utilización de esta Macro sobre los datos obtenidos, hemos separado la explicación en bloques
+		así la explicación se puede relacionar con el bloque correspondiente que se encuentra adjunto como en este apartado de la memoria.</p>
+		
+		
+		<h4>Bloque 1: Analizar las propiedades de la matriz exportada a Excel:</h4>
+		<p>Tendremos que buscar el número de columnas y filas máximo hasta donde está la información para poder así tener los 
+		índices de recorrido de la matriz. En nuestro caso, el número máximo de columnas será fijo ya que hemos empleado 50 películas, no 
+		obstante el código está definido para cualquier número de películas</p>
+		
+		<h4>Bloque 2: Obtener películas valoradas positiva y negativamente:</h4>
+		<p>Ahora procederemos a hacer el cambio de todas las valoraciones numéricas de las películas empleando el criterio
+		de si alguna ha recibido un voto de 4 o 5 se considera una película positiva o que ha gustado y en cambio sí ha recibido una 
+		valoración de 1 o 2 se considera que es una valorado negativamente, para que esta información resulte útil para Gephi tendremos 
+		que cambiar estos votos por los títulos de las películas, para ello el programa pregunta que se desea hacer, si buscar 
+		las películas mejores para lo cual se introducirá la letra “M” o “m” o si buscar las películas valoradas como  peores para 
+		lo cual se introducirá la letra “P” o “p” .</p>
+		
+		<h4>Bloque 3: Formateo de la hoja Excel para crear todos los nodos y enlaces:</h4>
+		<p>Para que Gephi pueda crear los enlaces entre los nodos debemos dejar en la primera columna la película a tratar y a su lado 
+		todas las demás películas, ya que así es como Gephi formará los enlaces. Por lo cual habrá que ir quitando la primera película
+		de la primera columna y poner la segunda película en la primera columna pero en la fila última sucesiva donde finalizó la película 
+		anterior e ir haciendo esto para todas las demás películas hasta llegar a la penúltima. Para esto hemos empleado un triple bucle
+		iterativo en el programa. Al final se observará una pirámide invertida.  </p>
+		
+		<h4>Bloque 4: Eliminaremos todas aquellas filas que hayan tenido una valoración que no nos interese:</h4>
+		<p>Ahora por último, recorreremos toda la estructura creada hasta ahora (de dimensiones muy grande) y  eliminaremos todas aquellas 
+		filas de la primera columna que hayan tenido una valoración que no nos interese, es decir si estamos modelando películas positivas, eliminaremos 
+		todas las filas que empiezan por valores menores a 4. </p>
+		<p>Finalmente una vez ejecutado el programa podremos exportar la hoja Excel a un formato .CSV separado por “;” una vez hecho tendremos que hacer 
+		un último formateo por razones de la gramática española (acentos y letra ñ)</p>
+		
+		<h3>Parseo de datos en el csv</h3>
+		
+		<p>Una vez obtenido el csv tenemos que filtrar su contenido para que Gephi pueda trabajar con él, los datos que tenemos que cambiar son:</p>
+		<li>Eliminar los espacios y las comas en los nombres de las películas.</li>
+		<li>Gephi no trabaja con algunos caracteres, cambiamos las tildes por su vocal sin ellas y las “ñ” por “n”.</li>
+		<li>-	Reemplazar las “;;” generadas por las casillas vacías en Excel, y las cambiamos por “;”.
+		Con todo esto ya tendríamos él .csv listo para cada una de las redes que creemos importantes para estudiar utilizando 
+		la herramienta Gephi y comenzar el análisis respectivo de cada una de ellas.</li>
+		
+	</body>
+</html>

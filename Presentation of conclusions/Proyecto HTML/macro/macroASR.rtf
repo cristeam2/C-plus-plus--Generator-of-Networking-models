@@ -1,0 +1,131 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1343\cocoasubrtf160
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww12600\viewh10200\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs28 \cf0 Sub macroASR()\
+\
+    '-----------------------Bloque 1-------------------------:\
+    '---Buscamos el numero de columnas y filas  maximas en la hoja Excell actual :\
+    '---Luego hacemos un bucle para iterar por todas las columnas para saber cual tiene la mayor fila :\
+    \
+    'Guardo el numero m\'e1ximo de columnas el cual sera de 50 al tener este numero de peliculas\
+     ultimaCol = Cells(1, Cells.Columns.Count).End(xlToLeft).Column\
+    \
+    'Creo variable para guardar la pelicula que tenga mas valoraciones (llega mas abajo) para asi poder parsear\
+    Dim ultimaFila As Integer\
+    ultimaFila = 0\
+    \
+    'Bucle for para buscar por todas las columnas ( numero de peliculas)  e ir actualizando el valor con maxima filas\
+    For i = 1 To ultimaCol\
+      countult = Cells(Rows.Count, i).End(xlUp).Row\
+      If countult > ultimaFila Then\
+        ultimaFila = countult\
+      End If\
+     Next i\
+\
+   '-----------------------Bloque 2-------------------------:\
+   '---- Obtener peliculas valoradas positiva y negativamente:\
+   \
+   \
+    'Creo variable para guardar el valor de si se quiere formatear las mejores/positivas o peores/negativas peliculas\
+    Dim opcion As String\
+    \
+    'Cuadro de dialogo para capturar la variable\
+    opcion = InputBox("Mejores(M) o Peores(P)")\
+    \
+    'Recorro toda la matriz para ir cambiando por cada columna los valores numericos por el nombre de la pelicula\
+     For a = 1 To ultimaCol\
+        For b = 1 To ultimaFila\
+            'm o M para positivos y sustituir asi los que tengan valoracion positivas ( 4 o 5)\
+          If opcion = "m" Or opcion = "M" Then\
+            If Cells(b, a).Value = 4 Or Cells(b, a).Value = 5 Then\
+                Cells(b, a).Value = Cells(1, a)\
+            End If\
+          End If\
+          'p o P para negativos y sustituir asi los que tengan valoraciones negativas ( 1 y 2)\
+          If opcion = "p" Or opcion = "P" Then\
+             If Cells(b, a).Value = 1 Or Cells(b, a).Value = 2 Then\
+                Cells(b, a).Value = Cells(1, a)\
+            End If\
+         End If\
+    Next b\
+Next a\
+    \
+    'Borro la primera fila ya que solo estaban los datos del titulo de la pelicula, y esto no aportaba valor alguno\
+    ActiveSheet.Cells(1, 50).EntireRow.Delete\
+\
+    'Mensaje por pantalla para notificar que hemos terminado la sustitucion de las valores numericos por los titulos de las peliculas\
+    MsgBox "Sustitucion con exito, ahora copiado: "\
+    \
+    'Actualizar el valor de la ultima fila ya que hemos borrado la primera fila\
+    ultimaFila = ultimaFila - 1\
+    \
+    \
+    \
+    '-----------------------Bloque 3-------------------------:\
+    '---Formateo de la hoja Excel para crear todos los nodos y enlaces\
+\
+\
+\
+    'Triple bucle para ir celda por celda cambiando las valoraciones numericas por los titulos\
+    For Iter = 1 To (ultimaCol - 2)\
+    If Iter = 10 Then\
+        'Mensaje por pantalla para indicar porcentaje de completado\
+        MsgBox "20% completado"\
+    End If\
+       If Iter = 28 Then\
+        'Mensaje por pantalla para indicar porcentaje de completado\
+        MsgBox "56% completado"\
+    End If\
+  For fil = 1 To ultimaFila\
+   For col = 1 To ultimaCol\
+         'Copia la celda A1 en la celda E1 usando cell\
+          Cells(fil + (Iter * ultimaFila), col) = Cells(fil, col + Iter)\
+     Next col\
+  Next fil\
+ Next Iter\
+\
+MsgBox "100% - Fin, comienza reemplazado de valores vacios o sin interes"\
+\
+'-----------------------Bloque 4-------------------------:\
+' -----Eliminaremos todas aquellas filas que hallan tenido una valoracion que no nos interese\
+\
+\
+'Variable que almacena la ultima fila\
+Dim Counter\
+\
+Dim k As Integer\
+Dim ult As Integer\
+ult = Cells(Rows.Count, 1).End(xlUp).Row\
+Counter = ult\
+Cells(1, 1).Select\
+ActiveCell.Select\
+' Loops through the desired number of rows.\
+For k = 1 To Counter\
+     'Mensajes por pantalla de porcentaje de completado\
+      If k = (Counter \\ 4) Then\
+        MsgBox "25% completado"\
+      End If\
+      If k = (Counter \\ 2) Then\
+        MsgBox "50% completado"\
+      End If\
+      'If k = (Counter \\ 1.3) Then\
+        'MsgBox \'9375% completado"\
+      'End If\
+\
+    'Checks to see if the active cell is blank.\
+     If ActiveCell = "" Or ActiveCell.Value = "0" Or ActiveCell.Value = "1" Or ActiveCell.Value = "2" Or ActiveCell.Value = "3" Or ActiveCell.Value = "4" Or ActiveCell.Value = "5" Then\
+        Selection.EntireRow.Delete\
+        ' Decrements count each time a row is deleted. This ensures\
+        ' that the macro will not run past the last row.\
+        Counter = Counter - 1\
+    Else\
+        ' Selects the next cell.\
+        ActiveCell.Offset(1, 0).Select\
+    End If\
+Next k\
+        MsgBox "100% completado"\
+End Sub\
+}
